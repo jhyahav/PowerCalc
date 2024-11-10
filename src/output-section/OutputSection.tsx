@@ -1,3 +1,10 @@
+import { EnergyConsumptionChart } from "./EnergyConsumptionChart";
+
 export const OutputSection = () => {
-  return <div>OutputSection</div>;
+  return (
+    <div>
+      OutputSection
+      <EnergyConsumptionChart />
+    </div>
+  );
 };
