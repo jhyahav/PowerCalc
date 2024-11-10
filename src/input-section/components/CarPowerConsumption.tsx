@@ -1,10 +1,15 @@
-import { InputAdornment, TextField } from "@mui/material";
+import { Box, InputAdornment, TextField } from "@mui/material";
+import { styled } from "@mui/material/styles";
 import { ChangeEvent, FC, useState } from "react";
 
 type Props = {
   carPowerConsumption: number;
   updateCarPowerConsumption: (power: number) => void;
 };
+
+const CarPowerContainer = styled(Box)({
+  gridColumn: "span 3",
+});
 
 export const CarPowerConsumption: FC<Props> = ({
   carPowerConsumption,
@@ -25,16 +30,18 @@ export const CarPowerConsumption: FC<Props> = ({
   };
 
   return (
-    <TextField
-      value={carPowerConsumption}
-      onChange={handleChange}
-      slotProps={{
-        input: {
-          endAdornment: <InputAdornment position="end">kWh</InputAdornment>,
-        },
-      }}
-      error={hasError}
-      helperText={hasError ? "Please enter a valid non-negative number" : " "}
-    />
+    <CarPowerContainer>
+      <TextField
+        value={carPowerConsumption}
+        onChange={handleChange}
+        slotProps={{
+          input: {
+            endAdornment: <InputAdornment position="end">kWh</InputAdornment>,
+          },
+        }}
+        error={hasError}
+        helperText={hasError ? "Please enter a valid non-negative number" : " "}
+      />
+    </CarPowerContainer>
   );
 };

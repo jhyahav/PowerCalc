@@ -79,7 +79,6 @@ const grey = {
 
 const StyledInputRoot = styled("div")(
   ({ theme }) => `
-  font-family: inherit;
   font-weight: 400;
   color: ${theme.palette.mode === "dark" ? grey[300] : grey[500]};
   display: flex;
@@ -92,7 +91,6 @@ const StyledInputRoot = styled("div")(
 const StyledInput = styled("input")(
   ({ theme }) => `
   font-size: 0.875rem;
-  font-family: inherit;
   font-weight: 400;
   line-height: 1.375;
   color: ${theme.palette.mode === "dark" ? grey[300] : grey[900]};

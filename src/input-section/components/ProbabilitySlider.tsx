@@ -1,5 +1,10 @@
-import { Slider } from "@mui/material";
+import { Slider, Box } from "@mui/material";
+import { styled } from "@mui/material/styles";
 import { FC } from "react";
+
+const SliderContainer = styled(Box)({
+  gridColumn: "span 3",
+});
 
 const valueText = (value: number) => `${value}%`;
 
@@ -29,16 +34,18 @@ export const ProbabilitySlider: FC<Props> = ({
   };
 
   return (
-    <Slider
-      defaultValue={100}
-      getAriaValueText={valueText}
-      valueLabelDisplay="on"
-      min={20}
-      max={200}
-      marks={marks}
-      value={arrivalProbability}
-      valueLabelFormat={valueText}
-      onChange={handleChange}
-    />
+    <SliderContainer>
+      <Slider
+        defaultValue={100}
+        getAriaValueText={valueText}
+        valueLabelDisplay="on"
+        min={20}
+        max={200}
+        marks={marks}
+        value={arrivalProbability}
+        valueLabelFormat={valueText}
+        onChange={handleChange}
+      />
+    </SliderContainer>
   );
 };

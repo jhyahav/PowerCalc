@@ -6,10 +6,14 @@ import { styled } from "@mui/material/styles";
 import { Box } from "@mui/material";
 import { ProbabilitySlider } from "./components/ProbabilitySlider";
 import { CarPowerConsumption } from "./components/CarPowerConsumption";
+import { PowerPerChargePoint } from "../types";
+import { ChargepointCounters } from "./components/ChargepointCounters";
 
 const InputSectionContainer = styled(Box)({
   display: "grid",
   width: "100%",
+  gridTemplateColumns: "repeat(6, 1fr)",
+  gridTemplateRows: "2fr 1fr",
 });
 export const InputSection = () => {
   const [currentInput, dispatch] = useReducer(inputReducer, initialInput);
@@ -20,10 +24,18 @@ export const InputSection = () => {
   const updateArrivalProbability = (payload: number) =>
     dispatch({ type: InputActions.UPDATE_ARRIVAL_PROBABILITY, payload });
 
-  const { arrivalProbability, carPowerConsumption } = currentInput;
+  const updatePowerPerChargepoint = (payload: PowerPerChargePoint) =>
+    dispatch({ type: InputActions.UPDATE_POWER_PER_CHARGEPOINT, payload });
+
+  const { arrivalProbability, carPowerConsumption, powerPerChargepoint } =
+    currentInput;
 
   return (
     <InputSectionContainer>
+      <ChargepointCounters
+        powerPerChargePoint={powerPerChargepoint}
+        updatePowerPerChargepoint={updatePowerPerChargepoint}
+      />
       <CarPowerConsumption
         carPowerConsumption={carPowerConsumption}
         updateCarPowerConsumption={updateCarPowerConsumption}
