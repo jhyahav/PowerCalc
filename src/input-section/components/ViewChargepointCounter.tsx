@@ -4,12 +4,7 @@ import { FC } from "react";
 import { styled } from "@mui/material/styles";
 import { Box, Typography } from "@mui/material";
 import EvStationIcon from "@mui/icons-material/EvStation";
-
-type Props = {
-  wattage: number;
-  count: number;
-  updateCount: (count: number) => void;
-};
+import { blue } from "../../constants";
 
 type OptFuncArgs<T> = T extends (...args: infer P) => unknown ? P : never;
 type OnChange = NumberInputProps["onChange"];
@@ -22,6 +17,11 @@ const CounterContainer = styled(Box)({
   alignItems: "center",
 });
 
+type Props = {
+  wattage: number;
+  count: number;
+  updateCount: (count: number) => void;
+};
 export const ViewChargepointCounter: FC<Props> = ({
   wattage,
   count,
@@ -35,7 +35,7 @@ export const ViewChargepointCounter: FC<Props> = ({
   return (
     <CounterContainer>
       <Typography>{wattage} kW</Typography>
-      <EvStationIcon sx={{ fontSize: "5rem" }} />
+      <EvStationIcon sx={{ fontSize: "5rem", color: blue[wattage] }} />
       <QuantityInput min={0} value={count} onChange={handleChange} />
     </CounterContainer>
   );

@@ -39,9 +39,9 @@ export const EnergyConsumptionChart = () => {
         <YAxis />
         <Tooltip formatter={tooltipFormatter} />
         <Legend formatter={formatLabel} />
-        <Bar dataKey="charge_11kW" stackId="a" fill={blue[0]} />
-        <Bar dataKey="charge_22kW" stackId="a" fill={blue[1]} />
-        <Bar dataKey="charge_50kW" stackId="a" fill={blue[2]} />
+        <Bar dataKey="charge_11kW" stackId="a" fill={blue[11]} />
+        <Bar dataKey="charge_22kW" stackId="a" fill={blue[22]} />
+        <Bar dataKey="charge_50kW" stackId="a" fill={blue[50]} />
       </BarChart>
     </ResponsiveContainer>
   );
