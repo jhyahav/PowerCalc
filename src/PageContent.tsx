@@ -3,14 +3,14 @@ import { styled } from "@mui/material/styles";
 import { InputSection } from "./input-section/InputSection";
 import { OutputSection } from "./output-section/OutputSection";
 
-const Container = styled(Box)({
+const Container = styled(Box)(({ theme }) => ({
   display: "flex",
   flexDirection: "column",
   justifyContent: "space-around",
   alignItems: "center",
-  padding: "20px",
-  height: "calc(100vh - 64px)",
-});
+  padding: theme.spacing(2.5),
+  height: `calc(100vh - ${theme.spacing(8)})`,
+}));
 export const PageContent = () => {
   return (
     <Container>

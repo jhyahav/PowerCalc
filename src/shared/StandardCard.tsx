@@ -22,7 +22,7 @@ const Title = styled(Typography)({
 });
 
 type Props = {
-  title: string;
+  title?: string;
   children: ReactNode;
   sx?: ComponentProps<typeof Card>["sx"];
 };
@@ -31,7 +31,7 @@ export const StandardCard: FC<Props> = ({ title, children, sx }) => {
   return (
     <StyledCard variant="outlined" sx={sx}>
       <StyledCardContent>
-        <Title>{title}</Title>
+        {title ? <Title>{title}</Title> : null}
         {children}
       </StyledCardContent>
     </StyledCard>
