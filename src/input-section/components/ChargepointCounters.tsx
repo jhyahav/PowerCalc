@@ -9,6 +9,7 @@ const FlexContainer = styled(Box)({
   display: "flex",
   width: "100%",
   justifyContent: "space-around",
+  flexWrap: "wrap",
 });
 
 type Props = {
