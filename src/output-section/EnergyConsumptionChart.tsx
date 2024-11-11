@@ -8,7 +8,18 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
+import { blue } from "../constants";
+import { Formatter } from "recharts/types/component/DefaultTooltipContent";
 
+const formatLabel = (key: string) => {
+  const power = key.match(/\d+kW/);
+  return power ? `${power[0]} Stations` : key;
+};
+
+const tooltipFormatter: Formatter<number, string> = (value, name) => [
+  value,
+  formatLabel(name),
+];
 export const EnergyConsumptionChart = () => {
   return (
     <ResponsiveContainer width="100%" height={300}>
@@ -26,10 +37,11 @@ export const EnergyConsumptionChart = () => {
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="name" />
         <YAxis />
-        <Tooltip />
-        <Legend />
-        <Bar dataKey="pv" stackId="a" fill="#8884d8" />
-        <Bar dataKey="uv" stackId="a" fill="#82ca9d" />
+        <Tooltip formatter={tooltipFormatter} />
+        <Legend formatter={formatLabel} />
+        <Bar dataKey="charge_11kW" stackId="a" fill={blue[0]} />
+        <Bar dataKey="charge_22kW" stackId="a" fill={blue[1]} />
+        <Bar dataKey="charge_50kW" stackId="a" fill={blue[2]} />
       </BarChart>
     </ResponsiveContainer>
   );
@@ -37,45 +49,45 @@ export const EnergyConsumptionChart = () => {
 
 const data = [
   {
-    name: "Sun",
-    uv: 4000,
-    pv: 2400,
-    amt: 2400,
-  },
-  {
     name: "Mon",
-    uv: 3000,
-    pv: 1398,
-    amt: 2210,
+    charge_11kW: 5000,
+    charge_22kW: 3500,
+    charge_50kW: 2000,
   },
   {
-    name: "Tues",
-    uv: 2000,
-    pv: 9800,
-    amt: 2290,
+    name: "Tue",
+    charge_11kW: 5200,
+    charge_22kW: 3700,
+    charge_50kW: 2100,
   },
   {
     name: "Wed",
-    uv: 2780,
-    pv: 3908,
-    amt: 2000,
+    charge_11kW: 5100,
+    charge_22kW: 3600,
+    charge_50kW: 2050,
   },
   {
-    name: "Thurs",
-    uv: 1890,
-    pv: 4800,
-    amt: 2181,
+    name: "Thu",
+    charge_11kW: 4900,
+    charge_22kW: 3400,
+    charge_50kW: 1950,
   },
   {
     name: "Fri",
-    uv: 2390,
-    pv: 3800,
-    amt: 2500,
+    charge_11kW: 4700,
+    charge_22kW: 3300,
+    charge_50kW: 1900,
   },
   {
     name: "Sat",
-    uv: 3490,
-    pv: 4300,
-    amt: 2100,
+    charge_11kW: 2500,
+    charge_22kW: 1800,
+    charge_50kW: 1000,
+  },
+  {
+    name: "Sun",
+    charge_11kW: 2000,
+    charge_22kW: 1500,
+    charge_50kW: 800,
   },
 ];
