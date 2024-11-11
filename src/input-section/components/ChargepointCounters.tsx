@@ -1,6 +1,15 @@
 import { FC } from "react";
 import { PowerPerChargePoint } from "../../types";
 import { ViewChargepointCounter } from "./ViewChargepointCounter";
+import { StandardCard } from "../../shared/StandardCard";
+import { Box } from "@mui/material";
+import { styled } from "@mui/material/styles";
+
+const FlexContainer = styled(Box)({
+  display: "flex",
+  width: "100%",
+  justifyContent: "space-around",
+});
 
 type Props = {
   powerPerChargePoint: PowerPerChargePoint;
@@ -16,12 +25,18 @@ export const ChargepointCounters: FC<Props> = ({
   const getUpdaterBywattage = (wattage: number) => (newCount: number) =>
     updatePowerPerChargepoint({ ...powerPerChargePoint, [wattage]: newCount });
 
-  return wattages.map((wattage) => (
-    <ViewChargepointCounter
-      count={powerPerChargePoint[wattage]}
-      key={wattage}
-      updateCount={getUpdaterBywattage(wattage)}
-      wattage={wattage}
-    />
-  ));
+  return (
+    <StandardCard title={"Charge Points"} sx={{ gridColumn: "span 6" }}>
+      <FlexContainer>
+        {wattages.map((wattage) => (
+          <ViewChargepointCounter
+            count={powerPerChargePoint[wattage]}
+            key={wattage}
+            updateCount={getUpdaterBywattage(wattage)}
+            wattage={wattage}
+          />
+        ))}
+      </FlexContainer>
+    </StandardCard>
+  );
 };

@@ -1,6 +1,7 @@
 import { Box, InputAdornment, TextField } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { ChangeEvent, FC, useState } from "react";
+import { StandardCard } from "../../shared/StandardCard";
 
 type Props = {
   carPowerConsumption: number;
@@ -11,6 +12,12 @@ const CarPowerContainer = styled(Box)({
   gridColumn: "span 3",
 });
 
+const StyledTextField = styled(TextField)({
+  width: "90%",
+  margin: "auto",
+});
+
+const ERROR_MESSAGE = "Please enter a valid, non-negative number.";
 export const CarPowerConsumption: FC<Props> = ({
   carPowerConsumption,
   updateCarPowerConsumption,
@@ -31,17 +38,19 @@ export const CarPowerConsumption: FC<Props> = ({
 
   return (
     <CarPowerContainer>
-      <TextField
-        value={carPowerConsumption}
-        onChange={handleChange}
-        slotProps={{
-          input: {
-            endAdornment: <InputAdornment position="end">kWh</InputAdornment>,
-          },
-        }}
-        error={hasError}
-        helperText={hasError ? "Please enter a valid non-negative number" : " "}
-      />
+      <StandardCard title="Average Car Power Consumption">
+        <StyledTextField
+          value={carPowerConsumption}
+          onChange={handleChange}
+          slotProps={{
+            input: {
+              endAdornment: <InputAdornment position="end">kWh</InputAdornment>,
+            },
+          }}
+          error={hasError}
+          helperText={hasError ? ERROR_MESSAGE : " "}
+        />
+      </StandardCard>
     </CarPowerContainer>
   );
 };

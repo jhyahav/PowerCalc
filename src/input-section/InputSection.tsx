@@ -9,12 +9,14 @@ import { CarPowerConsumption } from "./components/CarPowerConsumption";
 import { PowerPerChargePoint } from "../types";
 import { ChargepointCounters } from "./components/ChargepointCounters";
 
-const InputSectionContainer = styled(Box)({
+const InputSectionContainer = styled(Box)(({ theme }) => ({
   display: "grid",
   width: "100%",
   gridTemplateColumns: "repeat(6, 1fr)",
-  gridTemplateRows: "2fr 1fr",
-});
+  gridTemplateRows: "auto auto",
+  columnGap: theme.spacing(4),
+  rowGap: theme.spacing(2),
+}));
 export const InputSection = () => {
   const [currentInput, dispatch] = useReducer(inputReducer, initialInput);
 

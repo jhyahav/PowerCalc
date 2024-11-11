@@ -1,6 +1,7 @@
 import { Slider, Box } from "@mui/material";
 import { styled } from "@mui/material/styles";
 import { FC } from "react";
+import { StandardCard } from "../../shared/StandardCard";
 
 const SliderContainer = styled(Box)({
   gridColumn: "span 3",
@@ -35,17 +36,20 @@ export const ProbabilitySlider: FC<Props> = ({
 
   return (
     <SliderContainer>
-      <Slider
-        defaultValue={100}
-        getAriaValueText={valueText}
-        valueLabelDisplay="on"
-        min={20}
-        max={200}
-        marks={marks}
-        value={arrivalProbability}
-        valueLabelFormat={valueText}
-        onChange={handleChange}
-      />
+      <StandardCard title="Car Arrival Probability Multiplier">
+        <Slider
+          defaultValue={100}
+          getAriaValueText={valueText}
+          valueLabelDisplay="auto"
+          min={20}
+          max={200}
+          marks={marks}
+          value={arrivalProbability}
+          valueLabelFormat={valueText}
+          onChange={handleChange}
+          sx={{ width: "90%", margin: "auto" }}
+        />
+      </StandardCard>
     </SliderContainer>
   );
 };
