@@ -5,7 +5,7 @@ import { ComponentProps, FC, ReactNode } from "react";
 const StyledCard = styled(Card)(({ theme }) => ({
   borderRadius: 8,
   boxShadow: "0 4px 12px rgba(0, 0, 0, 0.1)",
-  marginBottom: theme.spacing(2),
+  marginBottom: theme.spacing(1.5),
 }));
 
 const StyledCardContent = styled(CardContent)(({ theme }) => ({

@@ -16,6 +16,7 @@ const InputSectionContainer = styled(Box)(({ theme }) => ({
   gridTemplateRows: "auto auto",
   columnGap: theme.spacing(2),
   rowGap: theme.spacing(1),
+  marginBottom: theme.spacing(1),
 }));
 export const InputSection = () => {
   const [currentInput, dispatch] = useReducer(inputReducer, initialInput);

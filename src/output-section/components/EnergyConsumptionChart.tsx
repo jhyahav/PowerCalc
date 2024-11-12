@@ -8,7 +8,7 @@ import {
   XAxis,
   YAxis,
 } from "recharts";
-import { blue } from "../constants";
+import { blue } from "../../constants";
 import { Formatter } from "recharts/types/component/DefaultTooltipContent";
 
 const formatLabel = (key: string) => {
@@ -22,7 +22,7 @@ const tooltipFormatter: Formatter<number, string> = (value, name) => [
 ];
 export const EnergyConsumptionChart = () => {
   return (
-    <ResponsiveContainer width="100%" height={300}>
+    <ResponsiveContainer minWidth={300} width={500} height={300}>
       <BarChart
         width={500}
         height={300}
@@ -36,9 +36,22 @@ export const EnergyConsumptionChart = () => {
       >
         <CartesianGrid strokeDasharray="3 3" />
         <XAxis dataKey="name" />
-        <YAxis />
+        <YAxis
+          label={{
+            value: "Energy Consumption (Wh / day)",
+            angle: -90,
+            offset: -8,
+            dy: 110,
+            position: "insideLeft",
+          }}
+        />
+
         <Tooltip formatter={tooltipFormatter} />
-        <Legend formatter={formatLabel} />
+        <Legend
+          formatter={formatLabel}
+          // @ts-expect-error Legend accepts percentage widths although it expects a number type
+          width="100%"
+        />
         <Bar dataKey="charge_11kW" stackId="a" fill={blue[11]} />
         <Bar dataKey="charge_22kW" stackId="a" fill={blue[22]} />
         <Bar dataKey="charge_50kW" stackId="a" fill={blue[50]} />
