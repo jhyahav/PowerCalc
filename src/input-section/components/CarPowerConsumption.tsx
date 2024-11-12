@@ -13,7 +13,7 @@ const CarPowerContainer = styled(Box)({
 });
 
 const StyledTextField = styled(TextField)({
-  width: "90%",
+  width: "85%",
   margin: "auto",
 });
 
@@ -45,6 +45,7 @@ export const CarPowerConsumption: FC<Props> = ({
           slotProps={{
             input: {
               endAdornment: <InputAdornment position="end">kWh</InputAdornment>,
+              sx: { fontSize: "1.5rem" },
             },
           }}
           error={hasError}

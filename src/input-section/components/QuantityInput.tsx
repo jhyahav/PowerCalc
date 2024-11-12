@@ -90,7 +90,7 @@ const StyledInputRoot = styled("div")(
 
 const StyledInput = styled("input")(
   ({ theme }) => `
-  font-size: 0.875rem;
+  font-size: 1.2rem;
   font-weight: 400;
   line-height: 1.375;
   color: ${theme.palette.mode === "dark" ? grey[300] : grey[900]};

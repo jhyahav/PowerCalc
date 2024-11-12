@@ -17,6 +17,11 @@ const CounterContainer = styled(Box)({
   alignItems: "center",
 });
 
+const StyledTypography = styled(Typography)({
+  fontSize: "1.1rem",
+  fontWeight: 500,
+});
+
 type Props = {
   wattage: number;
   count: number;
@@ -34,7 +39,7 @@ export const ViewChargepointCounter: FC<Props> = ({
 
   return (
     <CounterContainer>
-      <Typography>{wattage} kW</Typography>
+      <StyledTypography>{wattage} kW</StyledTypography>
       <EvStationIcon sx={{ fontSize: "5rem", color: blue[wattage] }} />
       <QuantityInput min={0} value={count} onChange={handleChange} />
     </CounterContainer>
