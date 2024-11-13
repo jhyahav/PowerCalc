@@ -1,6 +1,7 @@
 import { styled } from "@mui/material/styles";
 import { EnergyConsumptionChart } from "./components/EnergyConsumptionChart";
-import { Box } from "@mui/material";
+import { Statistics } from "./components/Statistics";
+import { Box, Divider } from "@mui/material";
 import { StandardCard } from "../shared/StandardCard";
 
 const OutputSectionContainer = styled(Box)({
@@ -8,10 +9,12 @@ const OutputSectionContainer = styled(Box)({
   fontFamily: "sans-serif",
 });
 
-const OutputCardContentBox = styled(Box)({
+const OutputCardContentBox = styled(Box)(({ theme }) => ({
   display: "flex",
   flexWrap: "wrap",
-});
+  justifyContent: "space-evenly",
+  rowGap: theme.spacing(4),
+}));
 
 export const OutputSection = () => {
   return (
@@ -19,7 +22,8 @@ export const OutputSection = () => {
       <StandardCard>
         <OutputCardContentBox>
           <EnergyConsumptionChart />
-          <EnergyConsumptionChart />
+          <Divider orientation="vertical" flexItem />
+          <Statistics />
         </OutputCardContentBox>
       </StandardCard>
     </OutputSectionContainer>
