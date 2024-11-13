@@ -18,7 +18,7 @@ const StyledCardContent = styled(CardContent)(({ theme }) => ({
 
 const Title = styled(Typography)({
   fontWeight: 600,
-  fontSize: "1.1rem",
+  fontSize: "1.5rem",
 });
 
 type Props = {

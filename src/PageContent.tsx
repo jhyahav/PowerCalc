@@ -8,7 +8,7 @@ const Container = styled(Box)(({ theme }) => ({
   flexDirection: "column",
   justifyContent: "space-around",
   alignItems: "center",
-  padding: theme.spacing(2.5),
+  padding: theme.spacing(2),
   height: `calc(100vh - ${theme.spacing(8)})`,
 }));
 export const PageContent = () => {

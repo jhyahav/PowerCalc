@@ -22,10 +22,15 @@ const tooltipFormatter: Formatter<number, string> = (value, name) => [
 ];
 export const EnergyConsumptionChart = () => {
   return (
-    <ResponsiveContainer minWidth={300} width={500} height={300}>
+    <ResponsiveContainer
+      minWidth={300}
+      minHeight={300}
+      width={900}
+      height={380}
+    >
       <BarChart
-        width={500}
-        height={300}
+        width={900}
+        height={400}
         data={data}
         margin={{
           top: 20,

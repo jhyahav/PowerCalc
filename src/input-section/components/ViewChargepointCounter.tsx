@@ -18,7 +18,7 @@ const CounterContainer = styled(Box)({
 });
 
 const StyledTypography = styled(Typography)({
-  fontSize: "1.1rem",
+  fontSize: "1.3rem",
   fontWeight: 500,
 });
 
