@@ -1,50 +1,18 @@
-# React + TypeScript + Vite
+# PowerCalc
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## About
+This web app is designed to simulate electric vehicle (EV) charging demand at a parking facility, designed for shop owners who want to plan EV charging stations without overburdening their power infrastructure. The dashboard allows users to adjust key parameters and view projections of energy consumption, peak power demand, and charging patterns.
 
-Currently, two official plugins are available:
+## Getting Started
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Screenshots
+### Standard laptop
+![image](https://github.com/user-attachments/assets/29c0210b-1b75-4ad7-8165-2e1f0e798680)
 
-## Expanding the ESLint configuration
+### Mobile
+![image](https://github.com/user-attachments/assets/95c3c746-aa8f-4c81-b4d6-5b1d8204d083)
+![image](https://github.com/user-attachments/assets/abd7fa63-d6b0-4817-9e21-6df49100a5d8)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### Widescreen
+![image](https://github.com/user-attachments/assets/15483da6-298d-48e6-919a-4dcf3306f24d)
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
